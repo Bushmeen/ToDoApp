@@ -1,0 +1,19 @@
+.header {
+	
+	padding: 4em 2em;
+	&__box {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+    &__welcome{
+        font-size: 2.5rem;
+    }
+	&__full-date {
+		display: flex;
+	}
+	&__date {
+        font-size: 1.5rem;
+		margin-left:4px;
+	}
+}

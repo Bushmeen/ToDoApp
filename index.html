@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://kit.fontawesome.com/cf11a82493.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="bar">
+            <button class="bar__btn bar__list bar__btn--active"><i class="fa-solid fa-list-check"></i></button>
+            <button class="bar__btn bar__add-new"><i class="fa-regular fa-square-plus"></i></button>
+            <button class="bar__btn bar__todo"><i class="fa-solid fa-folder-open"></i></button>
+        </div>
+    </nav>
+
+    <header class="header">
+        <div class="header__box">
+            <h1 class="header__welcome">Hello Kuba,</h1>
+            <div class="header__full-date">
+                <p class="header__date date-day">05</p>
+                <p class="header__date date-month">12</p>
+                <p class="header__date date-year">2022</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="wrapper">
+            <section class="category">
+                <div class="category__box">
+                    <div class="category__item">
+                        <div class="category__icon"><i class="fa-solid fa-list-ul"></i></div>
+                        <div class="category__describe">
+                            <h3 class="category__title">All</h3>
+                            <p class="category__ammount">7 Tasks</p>
+                        </div>
+                    </div>
+                    <div class="category__item">
+                        <div class="category__icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="category__describe">
+                            <h3 class="category__title">Done</h3>
+                            <p class="category__ammount">7 Tasks</p>
+                        </div>
+                    </div>
+
+                    <div class="category__item">
+                        <div class="category__icon"><i class="fa-solid fa-briefcase"></i></div>
+                        <div class="category__describe">
+                            <h3 class="category__title">Work</h3>
+                            <p class="category__ammount">7 Tasks</p>
+                        </div>
+                    </div>
+
+                    <div class="category__item">
+                        <div class="category__icon"><i class="fa-solid fa-dumbbell"></i></div>
+                        <div class="category__describe">
+                            <h3 class="category__title">Workout</h3>
+                            <p class="category__ammount">7 Tasks</p>
+                        </div>
+                    </div>
+                    <div class="category__item">
+                        <div class="category__icon"><i class="fa-solid fa-user-large"></i></div>
+                        <div class="category__describe">
+                            <h3 class="category__title">Personal</h3>
+                            <p class="category__ammount">7 Tasks</p>
+                        </div>
+                    </div>
+                    <div class="category__item">
+                        <div class="category__icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="category__describe">
+                            <h3 class="category__title">Travell</h3>
+                            <p class="category__ammount">7 Tasks</p>
+                        </div>
+                    </div>
+                    <div class="category__item">
+                        <div class="category__icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="category__describe">
+                            <h3 class="category__title">Study</h3>
+                            <p class="category__ammount">7 Tasks</p>
+                        </div>
+                    </div>
+                    <div class="category__item">
+                        <div class="category__icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                        <div class="category__describe">
+                            <h3 class="category__title">Shopping</h3>
+                            <p class="category__ammount">7 Tasks</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="add-new-popup">
+        <div class="popup">
+            <button class="popup__back"><i class="fa-solid fa-arrow-left"></i></button>
+            <h2 class="popup__title">New task</h2>
+            <label for="add-new-text" lass="popup__text">What are ypur plans?</label>
+            <textarea class="popup__input" id="add-new-text" name="add-new-text"></textarea>
+            <select id="choose-new">
+                <option value="all" selected disabled>- Select category -</option>
+                <option value="work">Work</option>
+                <option value="workout">Workout</option>
+                <option value="personal">Personal</option>
+                <option value="travell">Travell</option>
+                <option value="study">Study</option>
+                <option value="shopping">Shopping</option>
+            </select>
+            <p class="error"></p>
+            <button class="popup__save">Save</button>
+        </div>
+    </div>
+    <div class="to-do ">
+        <div class="list">
+            <button class="list__back"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="list__box">
+                <div class="list__top">
+                    <label for="chose-category">Choose category:</label>
+                    <select name="chose-category" id="chose-category">
+                        <option value="all" selected>All</option>
+                        <option value="done">Done</option>
+                        <option value="work">Work</option>
+                        <option value="workout">Workout</option>
+                        <option value="personal">Personal</option>
+                        <option value="travell">Travell</option>
+                        <option value="study">Study</option>
+                        <option value="shopping">Shopping</option>
+                    </select>
+                </div>
+                <div class="list__body">
+                    <!-- <div class="list__item">
+                        <div class="list__left">
+                            <div class="list__icon"><i class="fa-solid fa-list-ul"></i></div>
+                            <p class="list__name">All</p>
+                        </div>
+                        <div class="list__middle">
+                            <p class="list__task">Make some funny stuffddassadas ddff sdfdasfs</p>
+                        </div>
+                        <div class="list__right">
+                            <button class=" list__btn list__done"><i class="fa-solid fa-check"></i></button>
+                            <button class=" list__btn list__delete"><i class="fa-solid fa-trash"></i></button>
+                        </div> -->
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>

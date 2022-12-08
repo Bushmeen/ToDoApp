@@ -1,0 +1,33 @@
+.nav {
+	
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 1000;
+	.bar {
+		display: flex;
+		align-content: center;
+		justify-content: space-evenly;
+		background-color: white;
+		box-shadow: 0 0 4px black;
+		width: 100vw;
+		padding: 1em;
+		&__btn {
+			color: black;
+			font-size: 2rem;
+			padding: 0.4em 0.8em;
+			border: none;
+			background: none;
+			cursor: pointer;
+			transition: transform 0.3s;
+			&:hover{
+				transform: scale(1.2);
+			}
+
+			&--active {
+				color: rgb(39, 89, 240);
+			}
+            
+		}
+	}
+}

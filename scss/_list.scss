@@ -1,0 +1,130 @@
+.to-do {
+	.list {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-height: 100vh;
+		width: 100%;
+		z-index: 1000;
+		background-color: rgb(240, 240, 240);
+		opacity: 0;
+		transform: translateX(-100%);
+		transition: transform 0.4s, opacity 0.4s;
+		&--active {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		&__back {
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: none;
+			background: none;
+			font-size: 2.5rem;
+			padding: 1em;
+			cursor: pointer;
+		}
+		&__box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+			padding: 2em;
+		}
+		&__top {
+			margin-top: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 20%;
+			width: 100%;
+			margin-bottom: 50px;
+			label {
+				position: relative;
+				font-size: 2rem;
+				&::after {
+					position: absolute;
+					bottom: -5px;
+					left: 0;
+					content: '';
+					background-color: rgb(39, 89, 240);
+					height: 2px;
+					width: 100%;
+				}
+			}
+			select {
+				padding: 0.2em;
+				margin-left: 10px;
+				font-size: 1.7rem;
+				background: none;
+				border: none;
+				cursor: pointer;
+			}
+		}
+		&__body {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			height: 80%;
+			width: 100%;
+		}
+		&__item {
+			margin: 15px 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			background-color: white;
+			box-shadow: 0 0 4px black;
+			padding: 1em;
+			border-radius: 10px;
+			width: 100%;
+			max-width: 700px;
+			
+		}
+		&__left {
+			display: flex;
+			align-items: center;
+		}
+		&__icon {
+			font-size: 1.7rem;
+			margin-right: 10px;
+			color: rgb(39, 89, 240);
+		}
+		&__name {
+			font-size: 1.4rem;
+			font-weight: bold;
+		}
+		&__middle {
+			font-size: 1.3rem;
+			padding: 0.4em 1.5em;
+			text-align: center;
+
+			&--done {
+				text-decoration: line-through;
+			}
+		}
+		&__right {
+			display: flex;
+		}
+		&__btn {
+			display: block;
+			border: none;
+			background: none;
+			padding: 0.4em;
+			cursor: pointer;
+			i {
+				pointer-events: none;
+			}
+		}
+		&__done {
+			font-size: 2rem;
+			color: rgb(97, 255, 142);
+			margin-right: 10px;
+		}
+		&__delete {
+			color: rgb(233, 65, 65);
+		}
+	}
+}

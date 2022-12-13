@@ -14,6 +14,9 @@ const newTaskSaveBtn = document.querySelector('.popup__save');
 const newTaskError = document.querySelector('.error');
 const taskBody = document.querySelector('.list__body');
 const chooseSorting = document.querySelector('#chose-category');
+const allTasks = document.querySelectorAll('.category__ammount');
+const allTask = document.querySelector('.category__ammount-all');
+
 let errorCounter = 0;
 let taskID = 0;
 const tasksCategory = [];
@@ -26,11 +29,52 @@ const icons = [
 	`<i class="fa-solid fa-cart-shopping"></i>`,
 ];
 const saveTaskIcon = [];
+const categoriesAmmount = [0, 0, 0, 0, 0, 0, 0];
+let allCategoriesAmmount = 0;
 
 const clearNewTask = () => {
 	newTaskError.textContent = '';
 	inputText.value = '';
 	newTaskSelect.selectedIndex = 0;
+};
+const countTasksAdd = (category) => {
+	
+	for (let i = 0; i < categoriesAmmount.length; i++) {
+		if (allTasks[i].id == category) {
+			categoriesAmmount[i]++;
+			allCategoriesAmmount++;
+			allTasks[i].textContent = `${categoriesAmmount[i]} Tasks`;
+			allTask.textContent = `${allCategoriesAmmount} Tasks`;
+		}
+	}
+};
+const countTaskRemove = (category) => {
+	
+	for (let i = 0; i < categoriesAmmount.length; i++) {
+		if (allTasks[i].id == category) {
+			
+				
+				categoriesAmmount[i]--;
+				allCategoriesAmmount--;
+			
+			
+			allTasks[i].textContent = `${categoriesAmmount[i]} Tasks`;
+			allTask.textContent = `${allCategoriesAmmount} Tasks`;
+		}
+	}
+};
+const countTasksDone = (taskDone, prevoius) => {
+	const category = taskDone.children[0].children[1];
+
+	if (category.textContent === 'Done') {
+		countTaskRemove(prevoius);
+		categoriesAmmount[0]++;
+	} else {
+		countTasksAdd(prevoius);
+		if (categoriesAmmount[0] != 0) categoriesAmmount[0]--;
+
+	}
+	allTasks[0].textContent = `${categoriesAmmount[0]} Tasks`;
 };
 const sorting = () => {
 	const choosen = chooseSorting[chooseSorting.selectedIndex].textContent;
@@ -48,6 +92,8 @@ const sorting = () => {
 	});
 };
 const taskToDelete = (taskDelete) => {
+	const category = taskDelete.children[0].children[1].textContent;
+	countTaskRemove(category);
 	taskBody.removeChild(taskDelete);
 };
 const taskMarkDone = (taskDone) => {
@@ -73,6 +119,7 @@ const taskMarkDone = (taskDone) => {
 		taskDone.style.color = 'black';
 		taskMarkBtn.innerHTML = `<i class="fa-solid fa-check"></i>`;
 	}
+	countTasksDone(taskDone, tasksCategory[taskDone.id]);
 	sorting();
 };
 const checkClick = (e) => {
@@ -116,6 +163,7 @@ const creatTask = (input, category, iconIndex) => {
 	newTaskBox.append(newTaskBoxLeft);
 	newTaskBox.append(newTaskBoxMiddle);
 	newTaskBox.append(newTaskBoxRight);
+	countTasksAdd(category);
 };
 const openAddNewPopup = () => {
 	addNewPopup.classList.add('add-new-popup--active');
